@@ -1,4 +1,5 @@
 import json
+from loguru import logger as log
 from datetime import datetime
 
 from api.tesouro import BuySell
@@ -7,6 +8,7 @@ from api.tesouro import BuySell
 class DataProcess:
     @staticmethod
     def load_last_day(file):
+        log.info('Loading the last day...')
         with open(file, 'rt') as f:
             file = json.loads(f.read())
 
@@ -14,13 +16,15 @@ class DataProcess:
             return file
 
     @staticmethod
-    def load_current_day():
+    def get_current_day():
+        log.info('Getting the current day...')
         bs = BuySell()
         buy, sell = bs.get_price_rate()
         return buy, sell
 
-    @classmethod
-    def format_new_data(cls, last_day, buy, sell):
+    @staticmethod
+    def format_current_day(last_day, buy, sell):
+        log.info('Formatting the current day...')
         global bid, ask, puc, puv
         new_data = {}
 
@@ -50,16 +54,3 @@ class DataProcess:
                     }
 
         return new_data
-
-
-if __name__ == '__main__':
-    last_day = DataProcess().load_last_day('../lastDay.json')
-    buy, sell = DataProcess().load_current_day()
-
-    new_data = DataProcess().format_new_data(last_day, buy, sell)
-
-    print(f'Last Day: {json.dumps(last_day)}')
-    print(f'New Day: {json.dumps(new_data)}')
-    print(f'Buy: {json.dumps(buy)}')
-    print(f'Sell: {json.dumps(sell)}')
-

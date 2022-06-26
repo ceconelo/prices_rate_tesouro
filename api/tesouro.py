@@ -23,7 +23,7 @@ class BuySell:
             titulo = trlist['TrsrBd']['nm']
             name = " ".join(titulo.split(" ")[:-1])+'t'+ venc
 
-            if trlist['TrsrBd']['minInvstmtAmt'] != 0:
+            if trlist['TrsrBd']['minInvstmtAmt'] != 0: # Separando os titulos para compra e resgate
                 buy[name] = {
                     'min_invest': trlist['TrsrBd']['minInvstmtAmt'],  # Valor mínimo de investimento
                     'price': float(trlist['TrsrBd']['untrInvstmtVal']),  # Preço unitário
@@ -39,7 +39,6 @@ class BuySell:
 
         log.info(f'Total of Treasure bonds available to buy: {len(buy)}')
         log.info(f'Total of Treasure bonds available to sell: {len(sell)}')
-        log.info('Done!')
 
         return buy, sell
 
