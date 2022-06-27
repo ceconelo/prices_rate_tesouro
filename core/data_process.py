@@ -74,6 +74,7 @@ class DataProcess:
 
     @staticmethod
     def aggregate_data(variation):
+        log.info('Aggregating the data...')
         buy_bonds = []
         for key, value in variation.items():
             buy_bonds.append({'name': key[:-12], 'value': value})

@@ -1,0 +1,264 @@
+{
+  "Tesouro Prefixado\t2023-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 13.72,
+    "puc": 0,
+    "puv": 935.34,
+    "txm": 6.86,
+    "pum": 467.67
+  },
+  "Tesouro Prefixado\t2025-01-01": {
+    "date": "2022-06-26",
+    "bid": 12.55,
+    "ask": 12.67,
+    "puc": 742.71,
+    "puv": 740.72,
+    "txm": 12.61,
+    "pum": 741.715
+  },
+  "Tesouro IPCA+\t2024-08-15": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 6.07,
+    "puc": 0,
+    "puv": 3511.99,
+    "txm": 3.035,
+    "pum": 1755.995
+  },
+  "Tesouro IPCA+\t2035-05-15": {
+    "date": "2022-06-26",
+    "bid": 5.76,
+    "ask": 5.88,
+    "puc": 1939.86,
+    "puv": 1911.82,
+    "txm": 5.82,
+    "pum": 1925.84
+  },
+  "Tesouro IPCA+\t2045-05-15": {
+    "date": "2022-06-26",
+    "bid": 5.76,
+    "ask": 5.88,
+    "puc": 1109.76,
+    "puv": 1081.43,
+    "txm": 5.82,
+    "pum": 1095.595
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2024-08-15": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 6.1,
+    "puc": 0,
+    "puv": 4060.66,
+    "txm": 3.05,
+    "pum": 2030.33
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2026-08-15": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 5.67,
+    "puc": 0,
+    "puv": 4114.01,
+    "txm": 2.835,
+    "pum": 2057.005
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2035-05-15": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 5.84,
+    "puc": 0,
+    "puv": 4070.99,
+    "txm": 2.92,
+    "pum": 2035.495
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2045-05-15": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 6.02,
+    "puc": 0,
+    "puv": 4007.71,
+    "txm": 3.01,
+    "pum": 2003.855
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2050-08-15": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 6.05,
+    "puc": 0,
+    "puv": 4049.98,
+    "txm": 3.025,
+    "pum": 2024.99
+  },
+  "Tesouro IGPM+ com Juros Semestrais\t2031-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 5.69,
+    "puc": 0,
+    "puv": 9479.84,
+    "txm": 2.845,
+    "pum": 4739.92
+  },
+  "Tesouro Prefixado com Juros Semestrais\t2023-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 13.72,
+    "puc": 0,
+    "puv": 1029.71,
+    "txm": 6.86,
+    "pum": 514.855
+  },
+  "Tesouro Prefixado com Juros Semestrais\t2025-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 12.75,
+    "puc": 0,
+    "puv": 992.41,
+    "txm": 6.375,
+    "pum": 496.205
+  },
+  "Tesouro Prefixado com Juros Semestrais\t2027-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 12.77,
+    "puc": 0,
+    "puv": 958.95,
+    "txm": 6.385,
+    "pum": 479.475
+  },
+  "Tesouro Prefixado com Juros Semestrais\t2029-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 12.89,
+    "puc": 0,
+    "puv": 929.07,
+    "txm": 6.445,
+    "pum": 464.535
+  },
+  "Tesouro Selic\t2023-03-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 0.0481,
+    "puc": 0,
+    "puv": 11818.3,
+    "txm": 0.02405,
+    "pum": 5909.15
+  },
+  "Tesouro Selic\t2025-03-01": {
+    "date": "2022-06-26",
+    "bid": 0.1067,
+    "ask": 0.1167,
+    "puc": 11788.39,
+    "puv": 11785.23,
+    "txm": 0.1117,
+    "pum": 11786.81
+  },
+  "Tesouro Prefixado\t2026-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 12.63,
+    "puc": 0,
+    "puv": 657.93,
+    "txm": 6.315,
+    "pum": 328.965
+  },
+  "Tesouro IPCA+\t2026-08-15": {
+    "date": "2022-06-26",
+    "bid": 5.51,
+    "ask": 5.63,
+    "puc": 3189.87,
+    "puv": 3174.91,
+    "txm": 5.57,
+    "pum": 3182.39
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2030-08-15": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 5.67,
+    "puc": 0,
+    "puv": 4154.46,
+    "txm": 2.835,
+    "pum": 2077.23
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2040-08-15": {
+    "date": "2022-06-26",
+    "bid": 5.78,
+    "ask": 5.9,
+    "puc": 4169.33,
+    "puv": 4116.88,
+    "txm": 5.84,
+    "pum": 4143.105
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2055-05-15": {
+    "date": "2022-06-26",
+    "bid": 5.93,
+    "ask": 6.05,
+    "puc": 4058.22,
+    "puv": 3991.04,
+    "txm": 5.99,
+    "pum": 4024.63
+  },
+  "Tesouro Prefixado com Juros Semestrais\t2031-01-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 12.91,
+    "puc": 0,
+    "puv": 907.01,
+    "txm": 6.455,
+    "pum": 453.505
+  },
+  "Tesouro Prefixado\t2024-07-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 12.98,
+    "puc": 0,
+    "puv": 783.42,
+    "txm": 6.49,
+    "pum": 391.71
+  },
+  "Tesouro Selic\t2024-09-01": {
+    "date": "2022-06-26",
+    "bid": 0,
+    "ask": 0.0973,
+    "puc": 0,
+    "puv": 11797.14,
+    "txm": 0.04865,
+    "pum": 5898.57
+  },
+  "Tesouro Selic\t2027-03-01": {
+    "date": "2022-06-26",
+    "bid": 0.1566,
+    "ask": 0.1666,
+    "puc": 11736.22,
+    "puv": 11730.76,
+    "txm": 0.1616,
+    "pum": 11733.49
+  },
+  "Tesouro Prefixado\t2029-01-01": {
+    "date": "2022-06-26",
+    "bid": 12.66,
+    "ask": 12.78,
+    "puc": 461.0,
+    "puv": 457.82,
+    "txm": 12.719999999999999,
+    "pum": 459.40999999999997
+  },
+  "Tesouro IPCA+ com Juros Semestrais\t2032-08-15": {
+    "date": "2022-06-26",
+    "bid": 5.63,
+    "ask": 5.75,
+    "puc": 4180.68,
+    "puv": 4144.64,
+    "txm": 5.6899999999999995,
+    "pum": 4162.66
+  },
+  "Tesouro Prefixado com Juros Semestrais\t2033-01-01": {
+    "date": "2022-06-26",
+    "bid": 12.85,
+    "ask": 12.97,
+    "puc": 892.85,
+    "puv": 887.09,
+    "txm": 12.91,
+    "pum": 889.97
+  },
+  "xlsLastUpdated": "2022-06-26"
+}

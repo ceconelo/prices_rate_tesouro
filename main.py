@@ -1,5 +1,8 @@
 import json
+import os
+import sys
 
+from datetime import datetime
 from loguru import logger as log
 
 from api.tesouro import BuySell
@@ -35,13 +38,30 @@ def main():
     tweet_done_to_publish = prepare_to_publish(agg_data=agg_data)
 
     log.debug(f'Last Day: {json.dumps(last_day)}')
-    log.debug(f'Current Day: {json.dumps(current_day, indent=4)}')
+    log.debug(f'Current Day: {json.dumps(current_day)}')
     log.debug(f'Variation: {json.dumps(variation)}')
     log.debug(f'Buy: {json.dumps(buy)}')
     log.debug(f'Sell: {json.dumps(sell)}')
 
     for tweet in tweet_done_to_publish:
-        print(tweet)
+        try:
+            log.info(f'Publishing tweet: {tweet}')
+            # post tweet
+            print(tweet)
+        except BaseException as err:
+            log.error(f'Error: {err}')
+            log.error(f'There was an error trying to post to twitter.')
+            sys.exit(os.EX_OSERR)
+    try:
+        log.info('Saving the current day...')
+        current_day['xlsLastUpdated'] = datetime.today().strftime('%Y-%m-%d')
+        current_day = json.dumps(current_day, indent=2)
+        with open('last_day.json', 'wt') as f:
+            f.write(current_day)
+    except BaseException as err:
+        log.error(f'Error: {err}')
+        log.error(f'There was an error trying to save the last_day file.')
+        sys.exit(os.EX_OSERR)
 
 
 if __name__ == '__main__':

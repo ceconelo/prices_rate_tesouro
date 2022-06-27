@@ -30,7 +30,6 @@ class BuySell:
                     'rate': float(trlist['TrsrBd']['anulInvstmtRate']),  # Rentabilidade anual
                     'venc': venc  # Data de vencimento
                 }
-
             sell[name] = {
                 'price': float(trlist['TrsrBd']['untrRedVal']),  # Preço unitário
                 'rate': float(trlist['TrsrBd']['anulRedRate']),  # Rentabilidade anual
