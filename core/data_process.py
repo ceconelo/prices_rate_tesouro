@@ -34,11 +34,13 @@ class DataProcess:
             if primary_key != 'xlsLastUpdated':
 
                 try:
+                    # Securities to invest
                     bid = buy[primary_key]['rate']
                     ask = sell[primary_key]['rate']
                     puc = buy[primary_key]['price']
                     puv = sell[primary_key]['price']
                 except:
+                    # Securities to redeem
                     bid = 0
                     ask = sell[primary_key]['rate']
                     puc = 0
@@ -58,6 +60,9 @@ class DataProcess:
 
     @staticmethod
     def calcute_variation(current_day, last_day):
+        """
+        Calculate the variation between the current day and the last day
+        """
         log.info('Calculating the variation...')
         variation = {}
         for key in current_day:
@@ -74,10 +79,13 @@ class DataProcess:
 
     @staticmethod
     def aggregate_data(variation):
+        """
+        Aggregate the data to a single list aggregated by name of the bond.
+        """
         log.info('Aggregating the data...')
         buy_bonds = []
         for key, value in variation.items():
-            buy_bonds.append({'name': key[:-12], 'value': value})
+            buy_bonds.append({'name': key[:-11], 'value': value})
 
         od = OrderedDict()
 
