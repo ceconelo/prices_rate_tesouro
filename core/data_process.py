@@ -20,11 +20,11 @@ class DataProcess:
     def get_current_day():
         log.info('Getting the current day...')
         bs = BuySell()
-        buy, sell = bs.get_price_rate()
-        return buy, sell
+        buy, sell, last_update = bs.get_price_rate()
+        return buy, sell, last_update
 
     @staticmethod
-    def format_current_day(last_day, buy, sell):
+    def format_current_day(last_day, buy, sell, last_update):
         log.info('Formatting the current day...')
         global bid, ask, puc, puv
         new_data = {}
@@ -47,7 +47,7 @@ class DataProcess:
                     puv = sell[primary_key]['price']
                 finally:
                     new_data[primary_key] = {
-                        'date': datetime.today().strftime('%Y-%m-%d'),
+                        'date': last_update,
                         'bid': bid,
                         'ask': ask,
                         'puc': puc,

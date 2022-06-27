@@ -54,8 +54,8 @@ def prepare_to_publish(agg_data):
 
 def main():
     last_day = DataProcess.load_last_day(file='last_day.json')
-    buy, sell = DataProcess.get_current_day()
-    current_day = DataProcess.format_current_day(last_day=last_day, buy=buy, sell=sell)
+    buy, sell, last_update = DataProcess.get_current_day()
+    current_day = DataProcess.format_current_day(last_day=last_day, buy=buy, sell=sell, last_update=last_update)
     variation = DataProcess.calcute_variation(current_day=current_day, last_day=last_day)
     agg_data = DataProcess.aggregate_data(variation=variation)
     tweet_done_to_publish = prepare_to_publish(agg_data=agg_data)
@@ -77,7 +77,7 @@ def main():
             sys.exit(os.EX_OSERR)
     try:
         log.info('Saving the current day...')
-        current_day['xlsLastUpdated'] = datetime.today().strftime('%Y-%m-%d')
+        current_day['xlsLastUpdated'] = last_update
         current_day = json.dumps(current_day, indent=2)
         with open('last_day.json', 'wt') as f:
             f.write(current_day)

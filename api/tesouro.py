@@ -14,6 +14,8 @@ warnings.filterwarnings("ignore")
 class BuySell:
     @classmethod
     def __parse(cls, response):
+        global last_update
+
         log.info('Parsing the data...')
         buy = {}
         sell = {}
@@ -21,9 +23,9 @@ class BuySell:
         for trlist in response['response']['TrsrBdTradgList']:
             venc = format_date(trlist['TrsrBd']['mtrtyDt'])
             titulo = trlist['TrsrBd']['nm']
-            name = " ".join(titulo.split(" ")[:-1])+'\t'+ venc
+            name = " ".join(titulo.split(" ")[:-1]) + '\t' + venc
 
-            if trlist['TrsrBd']['minInvstmtAmt'] != 0: # Separando os titulos para compra e resgate
+            if trlist['TrsrBd']['minInvstmtAmt'] != 0:  # Separando os titulos para compra e resgate
                 buy[name] = {
                     'min_invest': trlist['TrsrBd']['minInvstmtAmt'],  # Valor mínimo de investimento
                     'price': float(trlist['TrsrBd']['untrInvstmtVal']),  # Preço unitário
@@ -39,7 +41,10 @@ class BuySell:
         log.info(f'Total of Treasure bonds available to buy: {len(buy)}')
         log.info(f'Total of Treasure bonds available to sell: {len(sell)}')
 
-        return buy, sell
+        # Last update of the information in website
+        last_update = format_date(response['response']['TrsrBondMkt']['qtnDtTm'])
+
+        return buy, sell, last_update
 
     def __init__(self):
         self.__url_base = 'https://www.tesourodireto.com.br/'
@@ -75,4 +80,3 @@ if __name__ == '__main__':
     buy, sell = td.get_price_rate()
     print(json.dumps(buy))
     print(json.dumps(sell))
-
