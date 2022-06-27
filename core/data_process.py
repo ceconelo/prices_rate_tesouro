@@ -1,6 +1,7 @@
 import json
 from loguru import logger as log
 from datetime import datetime
+from collections import OrderedDict
 
 from api.tesouro import BuySell
 
@@ -54,3 +55,37 @@ class DataProcess:
                     }
 
         return new_data
+
+    @staticmethod
+    def calcute_variation(current_day, last_day):
+        log.info('Calculating the variation...')
+        variation = {}
+        for key in current_day:
+            if key != 'xlsLastUpdated':
+                if current_day[key]['bid'] > 0: # only buy bonds
+                    variation[key] = {
+                        'year': key.split('\t')[1].split('-')[0],
+                        'rate': current_day[key]['bid'],
+                        'rate_diff': round(100 * (current_day[key]['bid'] - last_day[key]['bid']) / last_day[key]['bid'], 1),
+                        'price': current_day[key]['puc'],
+                        'price_diff': round(100 * (current_day[key]['puc'] - last_day[key]['puc']) / last_day[key]['puc'], 1),
+                    }
+        return variation
+
+    @staticmethod
+    def aggregate_data(variation):
+        buy_bonds = []
+        for key, value in variation.items():
+            buy_bonds.append({'name': key[:-12], 'value': value})
+
+        od = OrderedDict()
+
+        for bond in buy_bonds:
+            od.setdefault(bond['name'], list()).append(
+                {'year': bond['value']['year'], 'rate': bond['value']['rate'], 'rate_diff': bond['value']['rate_diff'],
+                 'price': bond['value']['price']})
+
+        agg_data = [{k: v.pop() if len(v) == 1 else v} for k, v in od.items()]
+        return agg_data
+
+

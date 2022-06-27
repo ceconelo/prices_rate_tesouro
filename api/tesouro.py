@@ -21,7 +21,7 @@ class BuySell:
         for trlist in response['response']['TrsrBdTradgList']:
             venc = format_date(trlist['TrsrBd']['mtrtyDt'])
             titulo = trlist['TrsrBd']['nm']
-            name = " ".join(titulo.split(" ")[:-1])+'t'+ venc
+            name = " ".join(titulo.split(" ")[:-1])+'\t'+ venc
 
             if trlist['TrsrBd']['minInvstmtAmt'] != 0: # Separando os titulos para compra e resgate
                 buy[name] = {
