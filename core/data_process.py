@@ -1,20 +1,49 @@
 import json
+import os
+import sys
+
 from loguru import logger as log
 from datetime import datetime
 from collections import OrderedDict
 
 from api.tesouro import BuySell
+from api.utils import fake_file
 
 
 class DataProcess:
-    @staticmethod
-    def load_last_day(file):
-        log.info('Loading the last day...')
+
+    @classmethod
+    def open_file(cls, file):
         with open(file, 'rt') as f:
             file = json.loads(f.read())
+        return file
 
-        if file.get('xlsLastUpdated'):
-            return file
+    @staticmethod
+    def load_last_day(file):
+        """
+        if the file doesn't exist, create it using the fake_file variable
+        """
+        try:
+            log.info('Loading the last day...')
+            file = DataProcess.open_file(file=file)
+
+            if file.get('xlsLastUpdated'):
+                return file
+        except BaseException as err:
+            log.error(f'The file was not found or is not valid: {file}')
+            try:
+                log.info('Creating a new file...')
+                with open('last_day.json', 'w') as f:
+                    f.write(json.dumps(fake_file, indent=2))
+            except:
+                log.error(f'Error: {err}')
+                log.error(f'Occurred an error while creating the file')
+            finally:
+                log.info('Loading the last day...')
+                file = DataProcess.open_file(file=file)
+
+                if file.get('xlsLastUpdated'):
+                    return file
 
     @staticmethod
     def get_current_day():
@@ -67,13 +96,15 @@ class DataProcess:
         variation = {}
         for key in current_day:
             if key != 'xlsLastUpdated':
-                if current_day[key]['bid'] > 0: # only buy bonds
+                if current_day[key]['bid'] > 0:  # only buy bonds
                     variation[key] = {
                         'year': key.split('\t')[1].split('-')[0],
                         'rate': current_day[key]['bid'],
-                        'rate_diff': round(100 * (current_day[key]['bid'] - last_day[key]['bid']) / last_day[key]['bid'], 1),
+                        'rate_diff': round(
+                            100 * (current_day[key]['bid'] - last_day[key]['bid']) / last_day[key]['bid'], 1),
                         'price': current_day[key]['puc'],
-                        'price_diff': round(100 * (current_day[key]['puc'] - last_day[key]['puc']) / last_day[key]['puc'], 1),
+                        'price_diff': round(
+                            100 * (current_day[key]['puc'] - last_day[key]['puc']) / last_day[key]['puc'], 1),
                     }
         return variation
 
@@ -96,5 +127,3 @@ class DataProcess:
 
         agg_data = [{k: v.pop() if len(v) == 1 else v} for k, v in od.items()]
         return agg_data
-
-
